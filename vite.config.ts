@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
+import Unfonts from 'unplugin-fonts/vite'
 
 export default defineConfig({
   cacheDir: './node_modules/.vite/daun-d',
@@ -21,16 +22,13 @@ export default defineConfig({
     viteTsConfigPaths({
       root: './',
     }),
+    Unfonts({
+      google: {
+        families: ["Cinzel"]
+      }
+    })
   ],
 
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [
-  //    viteTsConfigPaths({
-  //      root: './',
-  //    }),
-  //  ],
-  // },
 
   test: {
     globals: true,

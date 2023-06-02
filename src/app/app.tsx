@@ -1,14 +1,17 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "src/routes";
+import { theme } from "src/theme/theme";
 
-import NxWelcome from './nx-welcome';
-
-export function App() {
-  return (
-    <div>
-      <NxWelcome title="daun-d" />
-    </div>
-  );
-}
+export const App = () => {
+	return (
+		<BrowserRouter>
+			<ThemeProvider theme={theme}>
+				<CssBaseline/>
+				<AppRoutes/>
+			</ThemeProvider>
+		</BrowserRouter>
+	);
+};
 
 export default App;

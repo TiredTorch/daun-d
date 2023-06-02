@@ -1,0 +1,78 @@
+{
+  "name": "daun-d",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/daun-d"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "daun-d:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "daun-d:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "daun-d:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "daun-d:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "daun-d:build:development"
+        },
+        "production": {
+          "buildTarget": "daun-d:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/daun-d"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "coverage/daun-d"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "daun-d:build"
+      }
+    }
+  },
+  "tags": []
+}

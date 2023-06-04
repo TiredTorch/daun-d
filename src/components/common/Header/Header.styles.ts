@@ -31,5 +31,23 @@ export const headerStyles = {
 		color: theme.palette.primary.light,
 		fontWeight: 700,
 		textDecoration: "none"
+	},
+	divider: {
+		width: "1px",
+		height: "auto"
+	},
+	buttonLogOut: {
+		fontSize: "12px",
+		padding: "1px"
+	},
+	avatarWrapper: {
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+		gap: "5px"
+	},
+	avatar: {
+		border: `1px solid ${theme.palette.primary.light}`
 	}
 };

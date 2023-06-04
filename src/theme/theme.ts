@@ -64,5 +64,12 @@ theme.components = {
 				}
 			}
 		}
+	},
+	MuiCircularProgress: {
+		styleOverrides: {
+			root: {
+				color: theme.palette.primary.dark
+			}
+		}
 	}
 };

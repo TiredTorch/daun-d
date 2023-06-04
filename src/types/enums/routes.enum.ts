@@ -1,9 +1,9 @@
 export enum AppRoutes {
-    MAP = "/world-map",
+    MAP = "/",
     CHARACTERS = "/characters",
     CHARACTER = "/characters/:characterName",
     TOOLS = "/tools",
     TOOL = "/tools/:toolName",
     HISTORY_LOG = "/history",
-    PROFILE = "/profile"
+    PROFILE = "/profile/:id"
 }

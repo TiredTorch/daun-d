@@ -1,7 +1,10 @@
 import { FC, CSSProperties, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { AppBar, Box, List, ListItem, Divider } from "@mui/material";
-import { Button } from "src/components/ui";
+import { AppBar, Box, List, ListItem, Divider, Avatar } from "@mui/material";
+import { useSignInWithGoogle, useSignOut } from "react-firebase-hooks/auth";
+import { Button, LoadingCircle } from "src/components/ui";
+import { firebaseAuth } from "src/firebase";
+import { useTypedSelector } from "src/redux";
 import { HeaderProps } from "./Header.types";
 import { headerStyles } from "./Header.styles";
 import { headerLinks } from "./Header.utils";
@@ -10,6 +13,10 @@ import logo from "../../../assets/logo.png";
 export const Header: FC<HeaderProps> = ({
 	handleOpenDrawer
 }) => {
+	const { userData, isLoading } = useTypedSelector(store => store.userSlice);
+
+	const [signInWithGoogle, ,loadingSignIn] = useSignInWithGoogle(firebaseAuth);
+	const [signOut, loadingSignOut] = useSignOut(firebaseAuth);
 
 	return (
 		<AppBar
@@ -34,15 +41,37 @@ export const Header: FC<HeaderProps> = ({
 								{item.title}
 							</Link>
 						</ListItem>
-						{headerLinks.length - 1 !== i &&
-             <Divider orientation="vertical"/>
+						{ headerLinks.length - 1 !== i && 
+						<Divider 
+							orientation="vertical"
+							sx={headerStyles.divider}
+						/> 
 						}
 					</Fragment>
 				))}
 			</List>
-			<Button>
-        Sign up
-			</Button>
+			{!(isLoading || loadingSignOut || loadingSignIn) && (
+				userData ?
+					<Box
+						sx={headerStyles.avatarWrapper}
+					>
+						<Link to={`/profile/${userData.uid}`}>
+							<Avatar 
+								src={userData.photoURL}
+								sx={headerStyles.avatar}
+							/>
+						</Link> 
+						<Button
+							onClick={signOut}
+							sx={headerStyles.buttonLogOut}
+						>
+							Log out
+						</Button>
+					</Box>
+					:
+					<Button onClick={() => signInWithGoogle()}>Sign up</Button>
+			)}
+			{(isLoading || loadingSignOut || loadingSignIn) && <LoadingCircle/>}
 		</AppBar>
 	);
 };

@@ -4,6 +4,11 @@
 dist
 tmp
 /out-tsc
+.env
+.firebase
+firebase.*
+firestore.*
+.firebaserc
 
 # dependencies
 node_modules

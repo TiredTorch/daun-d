@@ -1,23 +1,27 @@
 import { FC, PropsWithChildren, useState, useCallback } from "react";
 import { Box } from "@mui/material";
-import { Footer, Header, Sidebar } from "src/components";
+import { Footer, Header, ParallaxContainer, Sidebar } from "src/components";
+import { useAuthControl } from "src/hooks";
 import { userLayoutStyles } from "./UserLayout.styles";
+
 
 export const UserLayout: FC<PropsWithChildren> = ({
 	children
 }) => {
+	useAuthControl();
+
 	const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
 	const handleToggleDrawer = useCallback(
 		() => setIsOpenDrawer(prev => !prev),
 		[setIsOpenDrawer],
 	);
-	
 
 	return (
 		<Box
 			sx={userLayoutStyles.root}
 		>
+			<ParallaxContainer/>
 			<Header 
 				handleOpenDrawer={handleToggleDrawer}
 			/>
@@ -33,7 +37,7 @@ export const UserLayout: FC<PropsWithChildren> = ({
 				>
 					{children}
 				</Box>
-			</Box>
+			</Box> 
 			<Footer/>
 		</Box>
 	);

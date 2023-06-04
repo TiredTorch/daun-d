@@ -1,5 +1,5 @@
-import { Theme, alpha } from "@mui/material";
-import mapBg from "../../assets/map-bg.jpg";
+import { alpha } from "@mui/material";
+import { theme } from "src/theme/theme";
 
 export const userLayoutStyles = {
 	root: {
@@ -15,16 +15,13 @@ export const userLayoutStyles = {
 	},
 	contentWrapper: {
 		height: "inherit",
-		backgroundImage: `url(${mapBg})`,
 		backgroundSize: "cover",
-		backgroundPosition: "center",
 		display: "flex",
 		justifyContent: "center",
-		padding: "20px 0px"
+		padding: "20px 0px",
 	},
 	pageWrapper: {
-		background: (theme: Theme) => 
-			`linear-gradient(180deg, ${alpha(theme.palette.primary.main, 0.8)} 0%, ${alpha(theme.palette.primary.light, 0.8)} 100%)`,
+		background: `linear-gradient(180deg, ${alpha(theme.palette.primary.main, 0.8)} 0%, ${alpha(theme.palette.primary.light, 0.8)} 100%)`,
 		width: "98%",
 		borderRadius: "10px",
 		padding: "20px",

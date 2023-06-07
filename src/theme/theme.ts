@@ -15,7 +15,7 @@ declare module "@mui/material/styles" {
 export const theme = createTheme({
 	breakpoints: {
 		values: {
-			xs: 0,
+			xs: 200,
 			xxs: 360,
 			mb: 375,
 			sm: 700,
@@ -26,18 +26,18 @@ export const theme = createTheme({
 	},
 	palette: {
 		primary: {
-			light: "#004d00",
-			main: "#c7b52b",
-			dark: "#6A01FD"
+			light: "#AAABBC", 
+			main: "#C3C9E9",
+			dark: "#45425A"
 		},
 		secondary: {
-			light: "#005dff",
-			main: "#7c4d27",
-			dark: "#8da7b0"
+			light: "#8B8982",
+			main: "#6C91C2",
+			dark: "#575C55"
 		}
 	},
 	typography: {
-		fontFamily: "Playfair_Display"
+		fontFamily: "Cinzel"
 	}
 });
 
@@ -52,14 +52,14 @@ theme.components = {
 	MuiButton: {
 		styleOverrides: {
 			root: {
-				color: theme.palette.primary.light,
+				color: theme.palette.primary.dark,
 				fontSize: "calc(1vmin + 12px)",
-				background: theme.palette.primary.main,
-				border: `2px solid ${theme.palette.primary.light}`,
+				background: theme.palette.primary.light,
+				border: `2px solid ${theme.palette.primary.dark}`,
 				height: "fit-content",
 				"&:hover": {
 					color: theme.palette.primary.dark,
-					background: theme.palette.secondary.dark,
+					background: theme.palette.primary.main,
 					border: `2px solid ${theme.palette.primary.dark}`,
 				}
 			}
@@ -68,7 +68,72 @@ theme.components = {
 	MuiCircularProgress: {
 		styleOverrides: {
 			root: {
-				color: theme.palette.primary.dark
+				color: theme.palette.primary.light
+			}
+		}
+	},
+	MuiInputBase: {
+		styleOverrides: {
+			root: {
+				color:  theme.palette.primary.light,
+				fontWeight: "700",
+				fontSize: "calc(1vmin + 14px)",
+				fontFamily: "Cinzel",
+				"fieldset": {
+					border: "1px solid black"
+				},
+				"&.Mui-focused": {
+					"fieldset": {
+						border: "1px solid black",
+						borderColor: "black !important"
+					}
+				}
+			}
+		}
+	},
+	MuiInput: {
+		styleOverrides: {
+			root: {
+			}
+		}
+	},
+	MuiOutlinedInput: {
+		styleOverrides: {
+			root: {
+				border: "none"
+			},
+		}
+	},
+	MuiTableCell: {
+		styleOverrides: {
+			root: {
+				color:  theme.palette.primary.light,
+				fontWeight: "700",
+				fontSize: "calc(1vmin + 14px)",
+				fontFamily: "Cinzel",
+				borderColor: "rgba(0, 0, 0, 0.42)",
+				borderRight: "1px solid rgba(0, 0, 0, 0.42)",
+				":last-child": {
+					borderRight: "none",
+
+				}
+			}
+		}
+	},
+	MuiSelect: {
+		styleOverrides: {
+			root: {
+				width: "100%"
+			}
+		}
+	},
+	MuiInputLabel: {
+		styleOverrides: {
+			root: {
+				color:  theme.palette.primary.light,
+				fontWeight: "700",
+				fontSize: "calc(.5vmin + 9px)",
+				fontFamily: "Cinzel",
 			}
 		}
 	}

@@ -3,7 +3,7 @@ import { theme } from "src/theme/theme";
 
 export const sidebarStyles = {
 	root: {
-		background: (theme: Theme) => theme.palette.primary.main,
+		background: (theme: Theme) => theme.palette.secondary.main,
 		padding: "10px"
 	},
 	draw: {
@@ -19,7 +19,7 @@ export const sidebarStyles = {
 	},
 	listItem: {
 		fontSize: "calc(2vmin + 10px)",
-		color: theme.palette.primary.light,
+		color: theme.palette.primary.dark,
 		fontWeight: 700,
 		textDecoration: "none",
 	}

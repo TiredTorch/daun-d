@@ -1,5 +1,5 @@
 import { theme } from "src/theme/theme";
-import mapBg from "../../../assets/map-bg.jpg";
+import mapBg from "../../../assets/map-bg.png";
 
 export const parallaxContainerStyles = {
 	root: (x: number, y: number) => ({

@@ -1,3 +1,49 @@
 * {
     font-family: Cinzel;
 }
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+  background-color: #cbccdb;
+}
+  
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px #202022;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+textarea {
+  font-size: calc(1vmin + 14px);
+  color:#AAABBC;
+  background: #45425A;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+  resize: none;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+textarea::placeholder {
+  color: #AAABBC;
+}
+input[type="file"] {
+  display: none;
+}
+label.file-label {
+  color: #AAABBC;
+  border: 2px solid #AAABBC;
+  padding: 5px;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer
+}
+.imagePreview {
+  width: 80%;
+  max-width: 300px;
+  object-fit: contain;
+}

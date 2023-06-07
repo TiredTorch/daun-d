@@ -29,7 +29,8 @@ export const useAuthControl = () => {
 		}
 		await addDoc(firestore.users, {
 			uid: fbUser.uid,
-			photoURL: fbUser.photoURL
+			photoURL: fbUser.photoURL,
+			userName: fbUser.displayName
 		});
 		await handleLoadSelectedUser(fbUser);
 	};
@@ -44,16 +45,6 @@ export const useAuthControl = () => {
 		}
 
 		handleLoadSelectedUser(user);
-
-		// dispatch(
-		// 	user ?
-		// 		setUserInfo({
-		// 			uid: user.uid, 
-		// 			photoURL: user.photoURL
-		// 		}) :
-		// 		clearUserInfo()
-		// );
-
 
 	}, [loading, user]);
     

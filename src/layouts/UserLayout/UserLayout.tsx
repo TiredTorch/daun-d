@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren, useState, useCallback } from "react";
+import { useLocation  } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Footer, Header, ParallaxContainer, Sidebar } from "src/components";
 import { useAuthControl } from "src/hooks";
@@ -8,6 +9,8 @@ import { userLayoutStyles } from "./UserLayout.styles";
 export const UserLayout: FC<PropsWithChildren> = ({
 	children
 }) => {
+	const route = useLocation();
+
 	useAuthControl();
 
 	const [isOpenDrawer, setIsOpenDrawer] = useState(false);
@@ -21,7 +24,7 @@ export const UserLayout: FC<PropsWithChildren> = ({
 		<Box
 			sx={userLayoutStyles.root}
 		>
-			<ParallaxContainer/>
+			{!(route.pathname === "/") && <ParallaxContainer/>}
 			<Header 
 				handleOpenDrawer={handleToggleDrawer}
 			/>
@@ -30,10 +33,18 @@ export const UserLayout: FC<PropsWithChildren> = ({
 				onClose={handleToggleDrawer}
 			/>
 			<Box
-				sx={userLayoutStyles.contentWrapper}
+				sx={
+					route.pathname === "/" ?
+						userLayoutStyles.mapWrapper :
+						userLayoutStyles.contentWrapper
+				}
 			>
 				<Box
-					sx={userLayoutStyles.pageWrapper}
+					sx={
+						route.pathname === "/" ?
+							userLayoutStyles.mapWrapper :
+							userLayoutStyles.pageWrapper
+					}
 				>
 					{children}
 				</Box>

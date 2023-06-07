@@ -1,4 +1,5 @@
 export type User = {
     uid: string;
-    photoURL: string
+    photoURL: string;
+    userName: string
 }

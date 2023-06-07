@@ -3,7 +3,7 @@ import { theme } from "src/theme/theme";
 
 export const headerStyles = {
 	root: {
-		background: (theme: Theme) => theme.palette.primary.main,
+		background: (theme: Theme) => theme.palette.primary.dark,
 		maxHeight: "100px",
 		display: "flex",
 		flexDirection: "row",
@@ -48,6 +48,6 @@ export const headerStyles = {
 		gap: "5px"
 	},
 	avatar: {
-		border: `1px solid ${theme.palette.primary.light}`
+		border: `1px solid ${theme.palette.secondary.main}`
 	}
 };

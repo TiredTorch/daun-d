@@ -12,19 +12,24 @@ export const userLayoutStyles = {
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-between",
+		overflow: "hidden"
 	},
 	contentWrapper: {
-		height: "inherit",
+		height: "calc(100vh - 150px)",
 		backgroundSize: "cover",
 		display: "flex",
 		justifyContent: "center",
 		padding: "20px 0px",
 	},
+	mapWrapper: {
+		height: "calc(100vh - 150px)",
+	},
 	pageWrapper: {
-		background: `linear-gradient(180deg, ${alpha(theme.palette.primary.main, 0.8)} 0%, ${alpha(theme.palette.primary.light, 0.8)} 100%)`,
+		background: `linear-gradient(180deg, ${alpha(theme.palette.primary.light, 0.9)} 0%, ${alpha(theme.palette.primary.light, 0.9)} 100%)`,
 		width: "98%",
 		borderRadius: "10px",
 		padding: "20px",
-		maxWidth: "1300px"
+		maxWidth: "1300px",
+		overflowY: "auto"
 	}
 };
